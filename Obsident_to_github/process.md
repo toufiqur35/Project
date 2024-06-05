@@ -5,3 +5,4 @@
 5. configuration git setting 
 6. off and on git
 7. open command palette in the obsidian home right navigation.  >_
+8. search - open source control view.
