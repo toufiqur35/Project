@@ -1,7 +1,7 @@
 * store data into database
 
 ```php
-public function carouselCreateProcess(Request $request)
+public function Create(Request $request)
 {
         $validate = $request->validate([
             'title' => 'required',
