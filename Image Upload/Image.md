@@ -22,6 +22,8 @@ if($request->has('image'))
 }
 
 //multi image
+//input field
+<input type="file" multiple name="image[]">
 //validate
 'image.*' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:5120'
 foreach($request->image as $key => $value)
