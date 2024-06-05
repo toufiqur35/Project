@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsident_to_github/process.md",
+                "file": "Image Upload/Image.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Obsident_to_github/process.md",
+                "file": "Image Upload/Image.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Obsident_to_github/process.md",
+                "file": "Image Upload/Image.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Obsident_to_github/process.md"
+                "file": "Image Upload/Image.md"
               }
             }
           },
@@ -150,7 +150,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5
+    "width": 290.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -165,6 +166,8 @@
   "active": "168b24645a54cce4",
   "lastOpenFiles": [
     "Obsident_to_github/process.md",
+    "Image Upload/Image.md",
+    "Image Upload",
     "Obsident_to_github",
     "sobuj/first.md",
     "Welcome.md",
