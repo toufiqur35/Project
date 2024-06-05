@@ -23,5 +23,12 @@ if($request->has('image'))
 
 //multi image
 //validate
-'image*' => 'required|mimes:jpeg,jpg,png,gif'
+'image.*' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:5120'
+foreach($request->image as $key => $value)
+{
+	$imageName = time().'.'.$value->extension();
+	$path = 'uploads/schedule/';
+	$value->move($path, $imageName);
+	$imageName[] = $imageName;
+}
 ```
