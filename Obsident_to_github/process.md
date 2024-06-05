@@ -6,3 +6,5 @@
 6. off and on git
 7. open command palette in the obsidian home right navigation.  >_
 8. search - open source control view.
+
+[[https://www.youtube.com/watch?v=XR7PYaMVDw0]]

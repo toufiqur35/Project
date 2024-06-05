@@ -18,6 +18,14 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "e5eecbb65446f16e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
         ]
       }
@@ -142,7 +150,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5
+    "width": 290.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
