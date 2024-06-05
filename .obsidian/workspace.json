@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "sobuj/first.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Welcome.md",
+                "file": "sobuj/first.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Welcome.md",
+                "file": "sobuj/first.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md"
+                "file": "sobuj/first.md"
               }
             }
           },
@@ -154,9 +154,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6cf815cead59c022",
+  "active": "168b24645a54cce4",
   "lastOpenFiles": [
-    "project",
-    "Welcome.md"
+    "Welcome.md",
+    "sobuj/first.md",
+    "sobuj",
+    "project"
   ]
 }
