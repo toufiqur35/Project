@@ -7,4 +7,5 @@
 7. open command palette in the obsidian home right navigation.  >_
 8. search - open source control view.
 
-[[https://www.youtube.com/watch?v=XR7PYaMVDw0]]
+Danny Talks Tech: [[https://www.youtube.com/watch?v=XR7PYaMVDw0]]
+
