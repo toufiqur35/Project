@@ -4,27 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "826ba42dbbca648a",
+        "id": "3c2ce1cf272f78a2",
         "type": "tabs",
         "children": [
           {
-            "id": "168b24645a54cce4",
+            "id": "076d76efa98a7b9b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Resource/word sort.md",
+                "file": "Image Upload/Image.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "e5eecbb65446f16e",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
         ]
@@ -93,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Project Resource/word sort.md",
+                "file": "Image Upload/Image.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Project Resource/word sort.md",
+                "file": "Image Upload/Image.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Project Resource/word sort.md"
+                "file": "Image Upload/Image.md"
               }
             }
           },
@@ -150,8 +142,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5,
-    "collapsed": true
+    "width": 290.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -163,13 +154,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "168b24645a54cce4",
+  "active": "076d76efa98a7b9b",
   "lastOpenFiles": [
-    "Project Resource/update data.md",
-    "Project Resource/word sort.md",
-    "Project Resource/Hero slider.md",
-    "Project Resource/Untitled.md",
     "Project Resource/Store Data.md",
+    "Project Resource/Hero slider.md",
+    "Project Resource/destroy.md",
+    "Project Resource/word sort.md",
+    "Project Resource/update data.md",
     "Image Upload/Image.md",
     "Project Resource",
     "Obsident_to_github/process.md",
