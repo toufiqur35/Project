@@ -13,24 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Resource/One to One.md",
+                "file": "Image Upload/Image.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "3f74e812f3917756",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.2"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Project Resource/One to One.md",
+                "file": "Image Upload/Image.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Project Resource/One to One.md",
+                "file": "Image Upload/Image.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Project Resource/One to One.md"
+                "file": "Image Upload/Image.md"
               }
             }
           },
@@ -166,10 +155,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3f74e812f3917756",
+  "active": "076d76efa98a7b9b",
   "lastOpenFiles": [
-    "Image Upload/Image.md",
     "Project Resource/One to One.md",
+    "Image Upload/Image.md",
     "Project Resource/destroy.md",
     "Project Resource/Hero slider.md",
     "Project Resource/update data.md",
