@@ -36,8 +36,9 @@ foreach($request->image as $key => $value)
 
 
 // delete file
-if(File::exists($AboutUpdate->image))
+$image_path = public_path('about/'.$destroy->image);
+if(File::exists($image_path))
 {
-  File::delete($AboutUpdate->image);
+  File::delete($image_path);
 }
 ```
