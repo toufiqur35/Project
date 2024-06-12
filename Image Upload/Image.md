@@ -33,4 +33,11 @@ foreach($request->image as $key => $value)
 	$value->move($path, $imageName);
 	$imageName[] = $imageName;
 }
+
+
+// delete file
+if(File::exists($AboutUpdate->image))
+{
+  File::delete($AboutUpdate->image);
+}
 ```
