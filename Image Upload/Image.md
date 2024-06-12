@@ -42,3 +42,4 @@ if(File::exists($image_path))
   File::delete($image_path);
 }
 ```
+
