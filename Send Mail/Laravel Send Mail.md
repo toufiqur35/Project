@@ -82,5 +82,28 @@ Route::get(‘send-email’, [EmailController::class,’sendEmail’]);
 2. Route file
 
 ```php
-Route::get('//{id}', 'serviceDelete')->name('service.delete');
+Route::get('/send_mail/{id}',[yourcontroller::class,'sendMail'] );
+```
+
+3. Create the Controller
+
+```php
+php artisan make:controller MailController
+```
+
+4. Open the mail controller
+
+```php
+// App\http\controller\MailController
+
+public function sendMail($id)
+{
+	$data = Contact::find($id);            // use any model name
+	return view('mail.semd_mail',compact('data'));
+}
+```
+
+5. Create the blade file name (`send_mail`)
+```
+Resource\view\mail\send_mail.blade.php
 ```
