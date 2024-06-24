@@ -16,7 +16,15 @@ public function search(Request $request){
 ```
 
 ```html
-<form class="space-y-4 md:space-y-6" action="#" enctype="multipart/form-data" method="POST">
+<form action="/search" method="get">
+	<div>
+		<input type="text" name="search" placeholder="search......." value="{{ isset($search) ? $search : '' }}">
+		<button type="submit">Search</button>
+	</div>
+</form>
+```
 
-        @csrf
+```php
+Route::get('/',[DemoController::class,'index']);
+Route::get('/search',[DemoController::class,'search']);
 ```
