@@ -84,3 +84,4 @@ Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 </body>
 </html>
 ```
+
