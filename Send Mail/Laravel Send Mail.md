@@ -8,7 +8,7 @@ MAIL_USERNAME=your@gmail.com
 MAIL_PASSWORD=yourpassword
 MAIL_ENCRIPTION=tls
 MAIL_FROM_ADDRESS=”your@gmail.com”
-MAIL_FROM_NAME=”${APP_NAME”
+MAIL_FROM_NAME=”${APP_NAME}”
 ```
 
 Step-2:  Create the Controller
