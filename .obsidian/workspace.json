@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3c2ce1cf272f78a2",
+        "id": "3ab30b7d8d3fc7cb",
         "type": "tabs",
         "children": [
           {
-            "id": "076d76efa98a7b9b",
+            "id": "1877c91845121dc3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "877e845399733d49",
@@ -156,7 +155,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "076d76efa98a7b9b",
+  "active": "1877c91845121dc3",
   "lastOpenFiles": [
     "Send Mail/Laravel Send Mail.md",
     "Generate PDF/Dom PDF.md",

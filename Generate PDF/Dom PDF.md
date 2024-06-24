@@ -30,7 +30,17 @@ Now, update the code on the controller file.
 app/Http/Controllers/`PDFController.php`
 
 ```php
-
+ public function generatePDF()
+    {
+        $users = User::get();
+        $data = [
+            'title' => 'Welcome to my website',
+            'date' => date('m/d/Y'),
+            'users' => $users
+        ]; 
+        $pdf = PDF::loadView('myPDF', $data);            //myPDF is a view file
+        return $pdf->download('itsolutionstuff.pdf');
+    }
 ```
 
 **Step 5: Add Route**
@@ -38,4 +48,39 @@ app/Http/Controllers/`PDFController.php`
 
 ```php
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+```
+
+**Step 6: Create View File**
+* In Last step, let's create `myPDF.blade.php (resources/views/myPDF.blade.php)` for layout of pdf file and put following code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ $title }}</title>
+</head>
+<body>
+    <h1>{{ $title }}</h1>
+    <p>{{ $date }}</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.</p>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        @foreach($users as $user)
+        <tr>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+        </tr>
+        @endforeach
+    </table>
+</body>
+</html>
 ```
