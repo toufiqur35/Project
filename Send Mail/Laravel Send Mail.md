@@ -26,7 +26,12 @@ public function sendEmail()
 	$toEmail = “yourcliend@gmail.com”;
 	$message = “hello ,wellcome”;
 	$subject = “wellcome”;
-	Mail::to($toEmail)→send(new welcomeemail($message,$subject));
+	$response = Mail::to($toEmail)→send(new welcomeemail($message,$subject));
+	if($response){
+		return back()->with('success','success massage');
+	}else{
+		return back()->with('error','error massage');
+	}
 }
 ```
 
@@ -123,9 +128,15 @@ public function sendEmail(Request $request)
 	
 	$file = $request->file('attachment');
 	$file->move('uploads',$file->getClintOriginalName());
-	Mail::to($toEmail)->send(new welcomeemail($message,$file));
+	$response = Mail::to($toEmail)->send(new welcomeemail($message,$file));
 	//Mail::to($toEmail)->send(new welcomeemail($request->all(),$file));
 	// jodi from thaka data nita cai
+
+	if($response){
+		return back()->with('success','success massage');
+	}else{
+		return back()->with('error','error massage');
+	}
 }
 ```
 
@@ -195,8 +206,9 @@ resources/view/mail/`wellcome.blade.php`
 </head>
 	<body>
 		// j sokol data phatata cai sob dita hoba
+		
 		//jodi from thaka data nita cai
-		<p>name : {{$request[name]</p>
+		//<p>name : {{ $request['name'] }}</p>
 	</body>
 </html>
 ```
