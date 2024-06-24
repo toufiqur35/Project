@@ -142,7 +142,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5
+    "width": 290.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -154,7 +155,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1877c91845121dc3",
+  "active": "76aa9ffaadaec02c",
   "lastOpenFiles": [
     "Send Mail/Laravel Send Mail.md",
     "Generate PDF/Dom PDF.md",
