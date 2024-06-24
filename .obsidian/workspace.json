@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Search/Search Filter.md",
+                "file": "Search/Search.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Search/Search Filter.md",
+                "file": "Search/Search.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Search/Search Filter.md",
+                "file": "Search/Search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Search/Search Filter.md"
+                "file": "Search/Search.md"
               }
             }
           },
@@ -157,8 +157,9 @@
   },
   "active": "1877c91845121dc3",
   "lastOpenFiles": [
-    "Generate PDF/Dom PDF.md",
     "Search/Search Filter.md",
+    "Search/Search.md",
+    "Generate PDF/Dom PDF.md",
     "Search",
     "Send Mail/Laravel Send Mail.md",
     "Generate PDF",
