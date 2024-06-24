@@ -26,7 +26,7 @@ public function sendEmail()
 	$toEmail = “yourcliend@gmail.com”;
 	$message = “hello ,wellcome”;
 	$subject = “wellcome”;
-	Mail::to($toEmail)→send(new welcomeemail($message,$subject);
+	Mail::to($toEmail)→send(new welcomeemail($message,$subject));
 }
 ```
 
@@ -102,7 +102,7 @@ public function sendEmail(Request $request)
 	
 	$file = $request->file('attachment');
 	$file->move('uploads',$file->getClintOriginalName());
-	Mail::to($toEmail)→send(new welcomeemail($message,$subject);
+	Mail::to($toEmail)→send(new welcomeemail($message,$file));
 }
 ```
 
@@ -117,7 +117,7 @@ Step-5: open (app/mail/`welcomeemail.php`)
 ```php
 class welcomeemail extends mailable{
 public $message;
-public $subject;
+public $file;
 
 public function _construct($message,$subject)){
 	$this->message = $message;
