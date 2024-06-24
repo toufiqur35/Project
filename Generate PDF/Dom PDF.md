@@ -39,7 +39,7 @@ app/Http/Controllers/`PDFController.php`
             'users' => $users
         ]; 
         $pdf = PDF::loadView('myPDF', $data);            //myPDF is a view file
-        return $pdf->download('itsolutionstuff.pdf');
+        return $pdf->download('website_name.pdf');
     }
 ```
 
