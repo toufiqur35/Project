@@ -48,8 +48,11 @@ public function _construct($message,$subject)){
 	$this->subject = $subject;
 }
 
-public function envelope(){
+public function envelope():Envelope
+{
+	return new Envelope(
 	subject: $this->subject,
+	);
 }
 
 public function contend(){
@@ -119,13 +122,16 @@ class welcomeemail extends mailable{
 public $message;
 public $file;
 
-public function _construct($message,$subject)){
+public function _construct($message,$file)){
 	$this->message = $message;
-	$this->subject = $subject;
+	$this->file = $file;
 }
 
-public function envelope(){
-	subject: $this->subject,
+public function envelope():Envelope
+{
+	return new Envelope(
+		subject: 'any text',
+	);
 }
 
 public function contend(){
@@ -134,12 +140,25 @@ public function contend(){
 	);
 }
 
-public function attachments(){
+public function attachments():array
+{
+	$attachments = [];
 
+	if($this->file){
+		$attachments = [
+			Attachment::fromPath(public_path('/uploads/'.$this->file))
+		];
+	}
+
+	return $attachments;
 }
 
 }
 ```
+
+Step-6: Create blade file
+
+
 
 Step-6: Create Route
 
