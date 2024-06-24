@@ -68,7 +68,25 @@ public function attachments(){
 }
 ```
 
-Step-6: Create Route
+Step-6: Create blade file
+resources/view/mail/`wellcome.blade.php`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+	<body>
+		// j sokol data phatata cai sob dita hoba
+	</body>
+</html>
+```
+
+Step-7: Create Route
 
 ```php
 Route::get(‘send-email’, [EmailController::class,’sendEmail’]);
@@ -105,7 +123,9 @@ public function sendEmail(Request $request)
 	
 	$file = $request->file('attachment');
 	$file->move('uploads',$file->getClintOriginalName());
-	Mail::to($toEmail)→send(new welcomeemail($message,$file));
+	Mail::to($toEmail)->send(new welcomeemail($message,$file));
+	//Mail::to($toEmail)->send(new welcomeemail($request->all(),$file));
+	// jodi from thaka data nita cai
 }
 ```
 
@@ -120,13 +140,18 @@ Step-5: open (app/mail/`welcomeemail.php`)
 ```php
 class welcomeemail extends mailable{
 public $message;
+// public $request;               jodi from thaka data nita cai
 public $file;
 
 public function _construct($message,$file)){
 	$this->message = $message;
 	$this->file = $file;
 }
-
+//jodi from thaka data nita cai
+//public function _construct($request,$file)){
+//	$this->request = $request;
+//	$this->file = $file;
+//}
 public function envelope():Envelope
 {
 	return new Envelope(
@@ -157,10 +182,27 @@ public function attachments():array
 ```
 
 Step-6: Create blade file
+resources/view/mail/`wellcome.blade.php`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+	<body>
+		// j sokol data phatata cai sob dita hoba
+		//jodi from thaka data nita cai
+		<p>name : {{$request[name]</p>
+	</body>
+</html>
+```
 
 
-
-Step-6: Create Route
+Step-7: Create Route
 
 ```php
 Route::get(‘send-email’, [EmailController::class,’sendEmail’]);
