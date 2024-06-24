@@ -104,6 +104,23 @@ public function sendMail($id)
 ```
 
 5. Create the blade file name (`send_mail`)
-```
+```html
 Resource\view\mail\send_mail.blade.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+	<body>
+		<h1>{{ $data->name }}</h1>
+		<h1>{{ $data->email }}</h1>
+		<h1>{{ $data->phone }}</h1>
+		<h1>{{ $data->address }}</h1>
+		//more data
+	</body>
+</html>
 ```
