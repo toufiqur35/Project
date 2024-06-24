@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Image Upload/Image.md",
+                "file": "Send Mail/Laravel Send Mail.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Image Upload/Image.md",
+                "file": "Send Mail/Laravel Send Mail.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Image Upload/Image.md",
+                "file": "Send Mail/Laravel Send Mail.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Image Upload/Image.md"
+                "file": "Send Mail/Laravel Send Mail.md"
               }
             }
           },
@@ -155,17 +155,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "076d76efa98a7b9b",
+  "active": "f03ae5428258ad42",
   "lastOpenFiles": [
+    "Obsident_to_github/process.md",
+    "Send Mail/Laravel Send Mail.md",
+    "Send Mail",
     "Project Resource/One to One.md",
+    "Project Resource/update data.md",
+    "Project Resource/word sort.md",
     "Image Upload/Image.md",
     "Project Resource/destroy.md",
     "Project Resource/Hero slider.md",
-    "Project Resource/update data.md",
     "Project Resource/Store Data.md",
-    "Project Resource/word sort.md",
     "Project Resource",
-    "Obsident_to_github/process.md",
     "Image Upload",
     "Obsident_to_github",
     "sobuj/first.md",
