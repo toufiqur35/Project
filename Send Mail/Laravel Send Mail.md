@@ -70,3 +70,17 @@ Step-6: Create Route
 ```php
 Route::get(‘send-email’, [EmailController::class,’sendEmail’]);
 ```
+
+
+### Another
+1. blade file
+
+```html
+<a href="{{ url('send_mail',$data->id) }}">send mail</a>
+```
+
+2. Route file
+
+```php
+Route::get('//{id}', 'serviceDelete')->name('service.delete');
+```
