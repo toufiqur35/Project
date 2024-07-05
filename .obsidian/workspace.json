@@ -18,19 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "d8920ce71c343468",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.6.5"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -166,7 +155,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d8920ce71c343468",
+  "active": "1877c91845121dc3",
   "lastOpenFiles": [
     "Project Resource/word sort.md",
     "Importent website/Web Link.md",
