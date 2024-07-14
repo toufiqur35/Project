@@ -119,3 +119,15 @@ class DatabaseSeeder extends Seeder
 ```
 php artisan db:seed
 ```
+
+
+```
+'name' => fake()->name(),
+'email' => fake()->unique()->safeEmail(),
+'post_id' => fake()->numberBetween($min = 1, $max = 30),
+'tag_name' => fake()->word(),
+'bio' => $this->faker->sentence(),
+'user_id' => $this->faker->unique()->numberBetween($min = 1, $max = 30),
+'title' => $this->faker->sentence(),
+'content' => $this->faker->paragraph(),
+```
