@@ -32,15 +32,18 @@ class AdminUserSeeder extends Seeder
 ### Calling Additional Seeders
 Within the `DatabaseSeeder` class, you may use the `call` method to execute additional seed classes. Using the `call` method allows you to break up your database seeding into multiple files so that no single seeder class becomes too large. The `call` method accepts an array of seeder classes that should be executed:
 
+* Seeders/DatabaseSeeders.php
 ```php
 public function run(): void
 {
-$this->call([
-UserSeeder::class,
-PostSeeder::class,
-CommentSeeder::class,
-
-]);
-
+	$this->call([
+		UserSeeder::class,
+		PostSeeder::class,
+		CommentSeeder::class,
+	]);
 }
+```
+
+```
+php artisan db:seed
 ```
