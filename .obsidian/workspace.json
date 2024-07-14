@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3ab30b7d8d3fc7cb",
+        "id": "0a70874e7b85dd50",
         "type": "tabs",
         "children": [
           {
-            "id": "1877c91845121dc3",
+            "id": "967d85c38651006c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Demo Data/Factory.md",
+                "file": "Roles & Permission/Roles & Permission.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Demo Data/Factory.md",
+                "file": "Roles & Permission/Roles & Permission.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Demo Data/Factory.md",
+                "file": "Roles & Permission/Roles & Permission.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Demo Data/Factory.md"
+                "file": "Roles & Permission/Roles & Permission.md"
               }
             }
           },
@@ -142,7 +142,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5
+    "width": 290.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -154,26 +155,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1877c91845121dc3",
+  "active": "967d85c38651006c",
   "lastOpenFiles": [
-    "Demo Data/Seeder.md",
+    "Roles & Permission/Roles & Permission.md",
+    "Roles & Permission",
+    "Search/Search Filter.md",
+    "Search/Search.md",
+    "Rating List/User Rating.md",
+    "Obsident_to_github/process.md",
+    "Importent website/Web Link.md",
     "Demo Data/Factory.md",
+    "Demo Data/Seeder.md",
     "Image Upload/Image.md",
     "Demo Data",
-    "Importent website/Web Link.md",
     "Project Resource/word sort.md",
     "Importent website",
     "Date Time Formate/Date Time.md",
-    "Rating List/User Rating.md",
     "Date Time Formate",
-    "Search/Search.md",
     "Rating List",
-    "Search/Search Filter.md",
     "Generate PDF/Dom PDF.md",
     "Search",
     "Send Mail/Laravel Send Mail.md",
     "Generate PDF",
-    "Obsident_to_github/process.md",
     "Send Mail",
     "Project Resource/One to One.md",
     "Project Resource/update data.md",
@@ -182,7 +185,6 @@
     "Project Resource/Store Data.md",
     "Project Resource",
     "Image Upload",
-    "Obsident_to_github",
     "sobuj/first.md",
     "Welcome.md"
   ]
