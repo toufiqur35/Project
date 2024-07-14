@@ -36,21 +36,64 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema; 
 
 return new class extends Migration {
-/** * Run the migrations. */ 
 public function up(): void 
 { 
-Schema::create('products', function (Blueprint $table) 
-			   { 
+	Schema::create('products', function (Blueprint $table) 
+		{ 
 			   $table->id(); 
 			   $table->string('code')->unique();
 			   $table->string('name'); 
 			   $table->integer('quantity'); 
-			   $table->decimal('price', 8, 2); $table->text('description'); $table->timestamps(); }); } /** * Reverse the migrations. */ public function down(): void { Schema::dropIfExists('products'); } };
+			   $table->decimal('price', 8, 2); 
+			   $table->text('description'); 
+			   $table->timestamps(); });
+		} 
+	public function down(): void 
+		{ 
+		Schema::dropIfExists('products'); 
+		} 
+	};
 ```
 
+### 5. Update Product Model
+* After that we need to go to the `app\Models\Product.php` file and update the product model file with the following code.
 
+```php
+namespace App\Models; 
+use Illuminate\Database\Eloquent\Factories\HasFactory; 
+use Illuminate\Database\Eloquent\Model; 
 
+class Product extends Model { 
+	use HasFactory; 
+	protected $fillable = [ 'code', 'name', 'quantity', 'price', 'description', ]; 
+}
+```
+### 6. Update Product Factory Class
+* Now, it is the time to update our product factory class, just go to the `database\factories\ProductFactory.php` and update the product factory file.
 
+```php
+namespace Database\Factories; 
+use Illuminate\Database\Eloquent\Factories\Factory; 
+use App\Models\Product; 
 
+class ProductFactory extends Factory {
+protected $model = Product::class; 
 
-### 4. Update Product Model, Migration and Factory Class
+public function definition(): array { 
+	return [ 
+		'code' => fake()->unique()->bothify('?????-#####'),
+		'name' => fake()->name(), 
+		'quantity' => fake()->randomNumber(2, true), 
+		'price' => fake()->randomFloat(2, 20, 90), 
+		'description' => fake()->text(), 
+	];
+	} 
+}
+```
+
+### 7. Migrate Tables to Database
+
+```php
+php artisan migrate
+```
+
