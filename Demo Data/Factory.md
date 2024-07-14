@@ -97,3 +97,25 @@ public function definition(): array {
 php artisan migrate
 ```
 
+### 8. Calling Additional Seeders
+Within the `DatabaseSeeder` class, you may use the `call` method to execute additional seed classes. Using the `call` method allows you to break up your database seeding into multiple files so that no single seeder class becomes too large. The `call` method accepts an array of seeder classes that should be executed:
+
+* `database/Seeders/DatabaseSeeders.php`
+```php
+namespace Database\Seeders;
+use App\Models\Product;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    public function run(): void
+    {
+        Product::factory()->count(5)->create();
+    }
+}
+```
+
+```
+php artisan db:seed
+```
