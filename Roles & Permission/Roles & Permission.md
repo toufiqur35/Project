@@ -138,20 +138,22 @@ Let’s Open the `app/Http/Controllers/RoleController.php`
 ```php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
-class PermissionController extends Controller
+class RoleController extends Controller
 {
     public function index()
     {
-        $permissions = Permission::all();
-        return view('permissions.permission', compact('permissions'));
+        $roles = Role::all();
+        return view('roles.roles', compact('roles'));
     }
 
     public function create()
     {
-        return view('permissions.create');
+        $permissions = Permission::all();
+        return view('roles.create', compact('permissions'));
     }
 
     public function store(Request $request)
@@ -159,19 +161,23 @@ class PermissionController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:permissions|min:3',
         ]);
-        
+
         if($validator->passes()){
-            Permission::create(['name' => $request->name]);
-            return redirect('/permissions')->with('success', 'Permission created successfully');
+            $role = Role::create(['name' => $request->name]);
+            if(!empty($request->permission)){
+                $role->givePermissionTo($request->permission);
+            }
+            return redirect('/roles')->with('success', 'Permission created successfully');
         }else{
-            return redirect('/permissions/create')->withInput()->withErrors($validator);
+            return redirect('/roles/create')->withInput()->withErrors($validator);
         }
     }
 
     public function edit($id)
     {
-        $permission = Permission::find($id);
-        return view('permissions.edit', compact('permission'));
+        $roles = Role::find($id);
+        $permissions = Permission::all();
+        return view('roles.edit', compact('permissions', 'roles'));
     }
 
     public function update(Request $request, $id)
@@ -179,21 +185,24 @@ class PermissionController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:permissions|min:3',
         ]);
-
-        $permission = Permission::find($id);
+        
+        $roles = Role::find($id);
         if($validator->passes()){
-            $permission->update(['name' => $request->name]);
-            return redirect('/permissions')->with('success', 'Permission updated successfully');
+            $roles->update(['name' => $request->name]);
+            if(!empty($request->permission)){
+                $roles->givePermissionTo($request->permission);
+            }
+           return redirect('/roles')->with('success', 'Permission update successfully');
         }else{
-            return redirect('/permissions/edit')->withInput()->withErrors($validator);
+            return redirect('/roles/create')->withInput()->withErrors($validator);
         }
     }
 
     public function destroy($id)
     {
-        $permission = Permission::find($id);
-        $permission->delete();
-        return redirect('/permissions')->with('success', 'Permission deleted successfully');
+        // $permission = Permission::find($id);
+        // $permission->delete();
+        // return redirect('/permissions')->with('success', 'Permission deleted successfully');
     }
 }
 ```
