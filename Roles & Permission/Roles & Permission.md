@@ -62,9 +62,27 @@ php artisan make:controller RoleController
 Open your `route/web.php`
 
 ```php
-use App\Http\Controllers\PermissionController;
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    // permission
+    Route::get('/permissions', [PermissionController::class, 'index'])->name('permission');
+    Route::get('/permissions/create', [PermissionController::class, 'create'])->name('permission.create');
+    Route::post('/permissions/store', [PermissionController::class, 'store'])->name('permission.store');
+    Route::get('/permissions/edit/{id}', [PermissionController::class, 'edit'])->name('permission.edit');
+    Route::put('/permissions/update/{id}', [PermissionController::class, 'update'])->name('permission.update');
+    Route::get('/permissions/delete/{id}', [PermissionController::class, 'destroy'])->name('permission.destroy');
 
-Route::resource('permissions',[PermissionController::class]);
+    // permission
+    Route::get('/roles', [RoleController::class, 'index'])->name('roles');
+    Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
+    Route::post('/roles/store', [RoleController::class, 'store'])->name('roles.store');
+    Route::get('/roles/edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
+    Route::put('/roles/update/{id}', [RoleController::class, 'update'])->name('roles.update');
+    Route::get('/roles/delete/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+});
 ```
 
 ### Step 9: Controller Methods
@@ -167,7 +185,7 @@ class RoleController extends Controller
             if(!empty($request->permission)){
                 $role->givePermissionTo($request->permission);
             }
-            return redirect('/roles')->with('success', 'Permission created successfully');
+            return redirect('/roles')->with('success', 'Roles created successfully');
         }else{
             return redirect('/roles/create')->withInput()->withErrors($validator);
         }
@@ -177,22 +195,26 @@ class RoleController extends Controller
     {
         $roles = Role::find($id);
         $permissions = Permission::all();
-        return view('roles.edit', compact('permissions', 'roles'));
+        $hasPermission = $roles->permissions->pluck('name');
+        return view('roles.edit', compact('permissions', 'roles', 'hasPermission'));
     }
+
+  
 
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:permissions|min:3',
+            'name' => 'required|unique:roles,name,'.$id.',id',
         ]);
-        
         $roles = Role::find($id);
         if($validator->passes()){
             $roles->update(['name' => $request->name]);
             if(!empty($request->permission)){
-                $roles->givePermissionTo($request->permission);
+                $roles->syncPermissions($request->permission);
+            }else{
+                $roles->syncPermissions([]);
             }
-           return redirect('/roles')->with('success', 'Permission update successfully');
+            return redirect('/roles')->with('success', 'Roles update successfully');
         }else{
             return redirect('/roles/create')->withInput()->withErrors($validator);
         }
@@ -200,9 +222,9 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
-        // $permission = Permission::find($id);
-        // $permission->delete();
-        // return redirect('/permissions')->with('success', 'Permission deleted successfully');
+        $roles = Role::find($id);
+        $roles->delete();
+        return redirect('/roles')->with('success', 'Roles deleted successfully');
     }
 }
 ```
@@ -354,5 +376,125 @@ Let’s Create & Open the `resourch/views/permission/permission-edit.blade.php`
             </div>
         </div>
     </div>
+</x-app-layout>
+```
+
+### Step 11: Create Blade File Roles
+
+Let’s Create & Open the `resourch/views/roles/roles.blade.php`
+
+```html
+<x-app-layout>
+    <x-slot name="header">
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-lg text-gray-800 leading-tight px-10">
+                {{ __('Roles') }}
+            </h2>
+            <h2 class="font-semibold text-lg text-gray-800 leading-tight px-10">
+                <a href="{{ route('roles.create') }}">Create</a>
+            </h2>
+        </div>
+    </x-slot>
+    @if (Session::has('success'))
+        <div class="bg-green-200 border-green-600 p-4 mt-3 mx-16 rounded-sm shadow-sm">           {{ Session::get('success') }}
+        </div>
+    @endif
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-16">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <div class="relative overflow-x-auto">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                           <thead class="text-sm font-bold text-gray-800 border-b border-gray-200 ">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 w-[10%]">
+                                        #
+                                    </th>
+
+                                    <th scope="col" class="px-6 py-3 w-[20%]">
+
+                                        Name
+
+                                    </th>
+
+                                    <th scope="col" class="px-6 py-3 w-[30%]">
+
+                                        Permission
+
+                                    </th>
+
+                                    <th scope="col" class="px-6 py-3 w-[20%]">
+
+                                        Created
+
+                                    </th>
+
+                                    <th scope="col" class="px-6 py-3 w-[30%]">
+
+                                        Action
+
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @foreach ($roles as $role)
+
+                                <tr class="bg-white border-b border-gray-200">
+
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+
+                                        {{ $role->id }}
+
+                                    </th>
+
+                                    <td class="px-6 py-4">
+
+                                        {{ $role->name }}
+
+                                    </td>
+
+                                    <td class="px-6 py-4">
+
+                                        {{ $role->permissions->pluck('name')->implode(', ') }}
+
+                                    </td>
+
+                                    <td class="px-6 py-4">
+
+                                        {{ Carbon\Carbon::parse($role->created_at)->format('d-M-Y') }}
+
+                                    </td>
+
+                                    <td class="px-6 py-4">
+
+                                        <a class="bg-slate-700 text-white px-3 py-2 rounded-md" href="{{ route('roles.edit', $role->id) }}">Edit</a>
+
+                                        <a class="bg-red-700 text-white px-3 py-2 rounded-md" href="{{ route('roles.destroy', $role->id) }}">Delete</a>
+
+                                    </td>
+
+                                </tr>
+
+                                @endforeach
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </x-app-layout>
 ```
