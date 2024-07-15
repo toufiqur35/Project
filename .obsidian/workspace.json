@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Roles & Permission/Roles & Permission.md",
+                "file": "Roles & Permission/Spatie.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Roles & Permission/Roles & Permission.md",
+                "file": "Roles & Permission/Spatie.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Roles & Permission/Roles & Permission.md",
+                "file": "Roles & Permission/Spatie.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Roles & Permission/Roles & Permission.md"
+                "file": "Roles & Permission/Spatie.md"
               }
             }
           },
@@ -157,7 +157,7 @@
   },
   "active": "967d85c38651006c",
   "lastOpenFiles": [
-    "Roles & Permission/Roles & Permission.md",
+    "Roles & Permission/Spatie.md",
     "Roles & Permission",
     "Search/Search Filter.md",
     "Search/Search.md",
