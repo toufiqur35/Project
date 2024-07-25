@@ -142,7 +142,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5
+    "width": 290.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -154,7 +155,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f03ae5428258ad42",
+  "active": "76aa9ffaadaec02c",
   "lastOpenFiles": [
     "Roles & Permission/Spatie.md",
     "Roles & Permission",
