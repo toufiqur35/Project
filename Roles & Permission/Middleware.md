@@ -12,22 +12,16 @@ You may assign aliases to middleware in your application's `bootstrap/app.php`�
 
 In Laravel 11, if your controller implements the `HasMiddleware` interface, you can register [controller middleware](https://laravel.com/docs/11.x/controllers#controller-middleware) using the `middleware()` method:
 
+Let’s Open the `app/Http/Controllers/ArticleController.php`
+
 ```php
 public static function middleware(): array
-
     {
-
         return [
-
             new Middleware('permission:view articles', only: ['index']),
-
             new Middleware('permission:create articles', only: ['create']),
-
             new Middleware('permission:edit articles', only: ['edit']),
-
             new Middleware('permission:delete articles', only: ['destroy']),
-
         ];
-
     }
 ```

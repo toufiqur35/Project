@@ -4,47 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0a70874e7b85dd50",
+        "id": "377e6d5179484931",
         "type": "tabs",
         "children": [
           {
-            "id": "967d85c38651006c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Roles & Permission/Permission.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "207b5569fa920ef7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Roles & Permission/Spatie.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "db4f6de86c939b38",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Roles & Permission/Roles.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "861ba26edca69afc",
+            "id": "27d1d658148544c7",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -54,33 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "c4bfc29eca30a724",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Roles & Permission/Users.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c75a7869085ba88b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Roles & Permission/Middleware.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -146,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Roles & Permission/Middleware.md",
+                "file": "Roles & Permission/Articles.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Roles & Permission/Middleware.md",
+                "file": "Roles & Permission/Articles.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Roles & Permission/Middleware.md"
+                "file": "Roles & Permission/Articles.md"
               }
             }
           },
@@ -203,8 +142,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5,
-    "collapsed": true
+    "width": 290.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -216,14 +154,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c75a7869085ba88b",
+  "active": "27d1d658148544c7",
   "lastOpenFiles": [
+    "Roles & Permission/Users.md",
     "Roles & Permission/Middleware.md",
+    "Roles & Permission/Articles.md",
     "Roles & Permission/Roles.md",
     "Roles & Permission/Spatie.md",
     "Roles & Permission/Permission.md",
-    "Roles & Permission/Articles.md",
-    "Roles & Permission/Users.md",
     "Roles & Permission/Routes.md",
     "Roles & Permission",
     "Search/Search Filter.md",
