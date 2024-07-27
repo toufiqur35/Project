@@ -42,9 +42,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "861ba26edca69afc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Roles & Permission/Untitled.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -110,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Roles & Permission/Spatie.md",
+                "file": "Roles & Permission/Roles.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Roles & Permission/Spatie.md",
+                "file": "Roles & Permission/Roles.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Roles & Permission/Spatie.md"
+                "file": "Roles & Permission/Roles.md"
               }
             }
           },
@@ -180,11 +192,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "207b5569fa920ef7",
+  "active": "db4f6de86c939b38",
   "lastOpenFiles": [
+    "Roles & Permission/Spatie.md",
     "Roles & Permission/Roles.md",
     "Roles & Permission/Permission.md",
-    "Roles & Permission/Spatie.md",
+    "Roles & Permission/Untitled.md",
     "Roles & Permission/Routes.md",
     "Roles & Permission",
     "Search/Search Filter.md",
