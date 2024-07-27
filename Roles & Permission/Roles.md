@@ -1,4 +1,11 @@
 ### Controller Methods
+
+Create controller:
+
+```
+php artisan make:controller RoleController
+```
+
 Let’s Open the `app/Http/Controllers/RoleController.php`
 
 ```php

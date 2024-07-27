@@ -4,6 +4,8 @@
 php artisan make:migration create_articles_table
 ```
 
+open and code : `app/database/migration/create_articles_table.php`
+
 ```php
  Schema::create('articles', function (Blueprint $table) {
       $table->id();
@@ -20,7 +22,8 @@ php artisan make:migration create_articles_table
 php artisan make:model Article
 ```
 
-open and code : 
+open and code : `app/Http/Models/Article.php`
+
 ```php
 protected $fillable = [
         'title',
@@ -29,6 +32,13 @@ protected $fillable = [
     ];
 ```
 ### Controller Methods
+
+Create controller:
+
+```
+php artisan make:controller ArticleController
+```
+
 Let’s Open the `app/Http/Controllers/ArticleController.php`
 
 ```php

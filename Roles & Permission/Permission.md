@@ -1,4 +1,11 @@
 ### Controller Methods
+
+Create controller:
+
+```
+php artisan make:controller PermissionController
+```
+
 Let’s Open the `app/Http/Controllers/PermissionController.php`
 
 ```php
