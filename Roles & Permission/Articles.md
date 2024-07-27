@@ -1,4 +1,78 @@
+### Controller Methods
+Let’s Open the `app/Http/Controllers/ArticleController.php`
 
+```php
+class ArticleController extends Controller implements HasMiddleware
+{
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:view articles', only: ['index']),
+            new Middleware('permission:create articles', only: ['create']),
+            new Middleware('permission:edit articles', only: ['edit']),
+            new Middleware('permission:delete articles', only: ['destroy']),
+        ];
+    }
+
+    public function index()
+    {
+        $articles = Article::all();
+        return view('articles.index',compact('articles'));
+    }
+
+    public function create()
+    {
+        return view('articles.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'article' => 'required',
+        ]);
+
+        Article::create([
+            'title' => $request->title,
+            'author' => $request->author,
+            'article' => $request->article
+        ]);
+        return redirect('/articles')->with('success', 'Article created successfully');
+    }
+
+  
+    public function edit($id)
+    {
+        $articles = Article::find($id);
+        return view('articles.edit',compact('articles'));
+    }
+
+  
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'article' => 'required',
+        ]);
+
+        Article::find($id)->update([
+            'title' => $request->title,
+            'author' => $request->author,
+            'article' => $request->article
+        ]);
+        return redirect('/articles')->with('success', 'Article updated successfully');
+    }
+
+  
+    public function destroy($id)
+    {
+        Article::find($id)->delete();
+        return redirect('/articles')->with('success', 'Article deleted successfully');
+    }
+}
+```
 ### Create Blade File Articles:
 Let’s Create & Open the `resourch/views/articles/articles.blade.php`
 ```html
@@ -147,102 +221,52 @@ Let’s Create & Open the `resourch/views/articles/articles_edit.blade.php`
             <h2 class="font-semibold text-lg text-gray-800 leading-tight px-10">
                 <a href="{{ route('articles') }}">Back</a>
             </h2>
-
         </div>
-
     </x-slot>
 
-  
 
     <div class="py-12">
-
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-16">
-
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-
                 <div class="p-6 text-gray-900">
-
                     <form action="{{ route('articles.update', $articles->id) }}" method="POST">
-
                         @csrf
-
                         @method('PUT')
-
                         <div>
-
                             <div>
-
                                 <label for="" class="text-lg font-medium">Title</label>
-
                                 <div class="mb-3">
-
                                     <input type="text" name="title" class="border-gray-300 shadow-sm w-1/2 rounded-md" placeholder="Enter title" value="{{ old('title', $articles->title) }}">
-
                                 </div>
-
                                 @error('title')
-
                                 <div class=" text-red-600 mb-3">{{ $message }}</div>
-
                                 @enderror
-
                             </div>
 
-  
-
                             <div>
-
                                 <label for="" class="text-lg font-medium">Author</label>
-
                                 <div class="mb-3">
-
                                     <input type="text" name="author" class="border-gray-300 shadow-sm w-1/2 rounded-md" placeholder="Enter author name" value="{{ old('author', $articles->author) }}">
-
                                 </div>
-
                                 @error('author')
-
                                 <div class=" text-red-600 mb-3">{{ $message }}</div>
-
                                 @enderror
-
                             </div>
-
-  
-
                             <div>
-
                                 <label for="" class="text-lg font-medium">Article</label>
-
                                 <div class="mb-3">
-
                                     <textarea name="article" class="border-gray-300 shadow-sm w-1/2 rounded-md" placeholder="Enter article">{{old('article', $articles->article)}}</textarea></textarea>
-
                                 </div>
-
                                 @error('article')
-
                                 <div class=" text-red-600 mb-3">{{ $message }}</div>
-
                                 @enderror
-
                             </div>
-
-  
-
                             <button type="submit" class="bg-slate-700 text-white px-3 py-2 rounded-md">Submit</button>
-
                         </div>
-
                     </form>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </x-app-layout>
 ```
