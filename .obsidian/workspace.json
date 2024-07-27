@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f80a912bfb4c6a93",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.6.7"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -155,7 +166,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "76aa9ffaadaec02c",
+  "active": "f80a912bfb4c6a93",
   "lastOpenFiles": [
     "Roles & Permission/Spatie.md",
     "Roles & Permission",
