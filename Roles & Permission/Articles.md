@@ -1,3 +1,33 @@
+### Create Migration file:
+
+```
+php artisan make:migration create_articles_table
+```
+
+```php
+ Schema::create('articles', function (Blueprint $table) {
+      $table->id();
+      $table->string('title');
+      $table->text('article')->nullable();
+      $table->string('author');
+      $table->timestamps();
+
+  });
+```
+### Create Model file:
+
+```
+php artisan make:model Article
+```
+
+open and code : 
+```php
+protected $fillable = [
+        'title',
+        'article',
+        'author',
+    ];
+```
 ### Controller Methods
 Let’s Open the `app/Http/Controllers/ArticleController.php`
 
