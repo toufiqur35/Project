@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Roles & Permission/Articles.md",
+                "file": "Roles & Permission/Super-Admin.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Roles & Permission/Articles.md",
+                "file": "Roles & Permission/Super-Admin.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Roles & Permission/Articles.md",
+                "file": "Roles & Permission/Super-Admin.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Roles & Permission/Articles.md"
+                "file": "Roles & Permission/Super-Admin.md"
               }
             }
           },
@@ -142,8 +142,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5,
-    "collapsed": true
+    "width": 290.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -155,11 +154,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "76aa9ffaadaec02c",
+  "active": "27d1d658148544c7",
   "lastOpenFiles": [
+    "Roles & Permission/Articles.md",
+    "Roles & Permission/Super-Admin.md",
     "Roles & Permission/Users.md",
     "Roles & Permission/Middleware.md",
-    "Roles & Permission/Articles.md",
     "Roles & Permission/Roles.md",
     "Roles & Permission/Spatie.md",
     "Roles & Permission/Permission.md",
@@ -191,7 +191,6 @@
     "Project Resource/Store Data.md",
     "Project Resource",
     "Image Upload",
-    "sobuj/first.md",
-    "Welcome.md"
+    "sobuj/first.md"
   ]
 }
