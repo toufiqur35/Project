@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Roles & Permission/Users.md",
+                "file": "Send Mail/Laravel Send Mail.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Roles & Permission/Users.md",
+                "file": "Send Mail/Laravel Send Mail.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Roles & Permission/Users.md",
+                "file": "Send Mail/Laravel Send Mail.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Roles & Permission/Users.md"
+                "file": "Send Mail/Laravel Send Mail.md"
               }
             }
           },
@@ -157,13 +157,13 @@
   },
   "active": "27d1d658148544c7",
   "lastOpenFiles": [
+    "Roles & Permission/Users.md",
     "Roles & Permission/Roles.md",
     "Roles & Permission/Permission.md",
     "Roles & Permission/Middleware.md",
     "Roles & Permission/Spatie.md",
     "Roles & Permission/Super-Admin.md",
     "Roles & Permission/Articles.md",
-    "Roles & Permission/Users.md",
     "Roles & Permission/Routes.md",
     "Roles & Permission",
     "Search/Search Filter.md",
