@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Send Mail/Laravel Send Mail.md",
+                "file": "JWT Token/JWT Token.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Send Mail/Laravel Send Mail.md",
+                "file": "JWT Token/JWT Token.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Send Mail/Laravel Send Mail.md",
+                "file": "JWT Token/JWT Token.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Send Mail/Laravel Send Mail.md"
+                "file": "JWT Token/JWT Token.md"
               }
             }
           },
@@ -157,6 +157,9 @@
   },
   "active": "27d1d658148544c7",
   "lastOpenFiles": [
+    "Send Mail/Laravel Send Mail.md",
+    "JWT Token/JWT Token.md",
+    "JWT Token",
     "Roles & Permission/Users.md",
     "Roles & Permission/Roles.md",
     "Roles & Permission/Permission.md",
@@ -182,7 +185,6 @@
     "Rating List",
     "Generate PDF/Dom PDF.md",
     "Search",
-    "Send Mail/Laravel Send Mail.md",
     "Generate PDF",
     "Send Mail",
     "Project Resource/One to One.md",
@@ -190,8 +192,6 @@
     "Project Resource/destroy.md",
     "Project Resource/Hero slider.md",
     "Project Resource/Store Data.md",
-    "Project Resource",
-    "Image Upload",
-    "sobuj/first.md"
+    "Project Resource"
   ]
 }
