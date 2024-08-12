@@ -79,4 +79,3 @@ Route::post('/user-login',[UserController::class,'userLogin']);
 
 
 
-php artisan make:mail OTPMail

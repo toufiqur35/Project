@@ -13,7 +13,31 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Send Mail/OTP Mail.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1945f81f94736429",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Send Mail/Laravel Send Mail.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6813ecd56c653a49",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JWT Token/JWT Token.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Send Mail/Laravel Send Mail.md",
+                "file": "Send Mail/OTP Mail.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Send Mail/Laravel Send Mail.md",
+                "file": "Send Mail/OTP Mail.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Send Mail/Laravel Send Mail.md"
+                "file": "Send Mail/OTP Mail.md"
               }
             }
           },
@@ -157,8 +181,9 @@
   },
   "active": "27d1d658148544c7",
   "lastOpenFiles": [
-    "JWT Token/JWT Token.md",
     "Send Mail/Laravel Send Mail.md",
+    "JWT Token/JWT Token.md",
+    "Send Mail/OTP Mail.md",
     "JWT Token",
     "Roles & Permission/Users.md",
     "Roles & Permission/Roles.md",
@@ -191,7 +216,6 @@
     "Project Resource/update data.md",
     "Project Resource/destroy.md",
     "Project Resource/Hero slider.md",
-    "Project Resource/Store Data.md",
     "Project Resource"
   ]
 }
