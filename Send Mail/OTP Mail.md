@@ -61,6 +61,8 @@ class OTPMail extends Mailable
 
 Step-4 : Create & Open `resource/view/email/OTPMail.blade.php` file
 
+* This template sent to user email.
+
 ```html
 <div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
     <div style="margin:50px auto;width:70%;padding:20px 0">
@@ -79,4 +81,40 @@ Step-4 : Create & Open `resource/view/email/OTPMail.blade.php` file
       </div>
     </div>
   </div>
+```
+
+Step-5 :open User Controller file:
+* App \\ Http\\ Controller\\`UserController`
+
+```php
+function sendOTPCode(Request $request)
+    {
+        $email = $request->input('email');
+        $otp = rand(1000, 9999);
+        $user = User::where('email','=',$email)->count();
+        if($user == 1){
+            // send mail
+            Mail::to($email)->send(new OTPMail($otp));
+            // update otp code in database
+            $user = User::where('email','=',$email)
+                            ->update(['otp' => $otp]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'OTP code sent successfully'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'user not found'
+            ],500);
+        }
+    }
+```
+
+Step-6: Create Route
+
+```php
+Route::post('/user-otp',[UserController::class,'sendOTPCode']);
 ```
