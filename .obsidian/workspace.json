@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Send Mail/OTP Mail.md",
+                "file": "Send Mail/Verify OTP.md",
                 "mode": "source",
                 "source": false
               }
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Send Mail/OTP Mail.md",
+                "file": "Send Mail/Verify OTP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Send Mail/OTP Mail.md",
+                "file": "Send Mail/Verify OTP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Send Mail/OTP Mail.md"
+                "file": "Send Mail/Verify OTP.md"
               }
             }
           },
@@ -181,8 +181,9 @@
   },
   "active": "27d1d658148544c7",
   "lastOpenFiles": [
-    "Send Mail/Laravel Send Mail.md",
     "Send Mail/OTP Mail.md",
+    "Send Mail/Verify OTP.md",
+    "Send Mail/Laravel Send Mail.md",
     "JWT Token/JWT Token.md",
     "JWT Token",
     "Roles & Permission/Users.md",
@@ -215,7 +216,6 @@
     "Project Resource/One to One.md",
     "Project Resource/update data.md",
     "Project Resource/destroy.md",
-    "Project Resource/Hero slider.md",
     "Project Resource"
   ]
 }
