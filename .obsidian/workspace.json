@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JWT Token/JWT Token.md",
+                "file": "User Profile/Complete User Profile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JWT Token/JWT Token.md",
+                "file": "User Profile/Complete User Profile.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JWT Token/JWT Token.md"
+                "file": "User Profile/Complete User Profile.md"
               }
             }
           },
@@ -168,14 +167,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "52ec5e40a083a087",
+  "active": "e9157e967f18c51c",
   "lastOpenFiles": [
+    "JWT Token/JWT Token.md",
     "User Profile/Complete User Profile.md",
     "Send Mail/Verify OTP.md",
     "User Profile",
     "Send Mail/OTP Mail.md",
     "Send Mail/Laravel Send Mail.md",
-    "JWT Token/JWT Token.md",
     "JWT Token",
     "Roles & Permission/Users.md",
     "Roles & Permission/Roles.md",

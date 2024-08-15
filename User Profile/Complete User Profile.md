@@ -236,4 +236,9 @@ class UserController extends Controller
 }
 ```
 
-#### **Step 6: User Controller**
+#### **Step 6: JWT Token**
+
+```
+composer require tymon/jwt-auth
+```
+
