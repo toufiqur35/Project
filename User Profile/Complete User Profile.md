@@ -602,8 +602,8 @@ class OTPMail extends Mailable
 @extends('backend.layout.app')
 @section('content')
 <section class="bg-gray-50">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div class="w-[37%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
+    <div class="lg:flex md:flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="lg:w-[37%] md:w-[55%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl sob font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Send Otp</h1>
                 <div class="space-y-4 md:space-y-4">
@@ -647,8 +647,8 @@ class OTPMail extends Mailable
 @extends('backend.layout.app')
 @section('content')
 <section class="bg-gray-50">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div class="w-[37%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
+    <div class="lg:flex md:flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="lg:w-[37%] md:w-[55%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl sob font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">verify Otp</h1>
                 <div class="space-y-4 md:space-y-4">
@@ -697,8 +697,8 @@ async function VerifyOtp() {
 @extends('backend.layout.app')
 @section('content')
 <section class="bg-gray-50">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div class="w-[37%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
+    <div class="lg:flex md:flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="lg:w-[37%] md:w-[55%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl sob font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Reset Password</h1>
                 <div class="space-y-4 md:space-y-4">
