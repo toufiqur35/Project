@@ -338,6 +338,6 @@ public function handle(Request $request, Closure $next): Response
     }
 ```
 
-#### **Step 9: Make views.**
+#### **Step 10: Make views.**
 
 Create an registration page. **views/auth/registration.blade.php**

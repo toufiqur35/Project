@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "User Profile/Complete User Profile.md",
+                "file": "Send Mail/OTP Mail.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "User Profile/Complete User Profile.md",
+                "file": "Send Mail/OTP Mail.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "User Profile/Complete User Profile.md",
+                "file": "Send Mail/OTP Mail.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "User Profile/Complete User Profile.md"
+                "file": "Send Mail/OTP Mail.md"
               }
             }
           },
@@ -169,12 +169,12 @@
   },
   "active": "e9157e967f18c51c",
   "lastOpenFiles": [
-    "JWT Token/JWT Token.md",
-    "User Profile/Complete User Profile.md",
-    "Send Mail/Verify OTP.md",
-    "User Profile",
-    "Send Mail/OTP Mail.md",
     "Send Mail/Laravel Send Mail.md",
+    "Send Mail/Verify OTP.md",
+    "Send Mail/OTP Mail.md",
+    "User Profile/Complete User Profile.md",
+    "JWT Token/JWT Token.md",
+    "User Profile",
     "JWT Token",
     "Roles & Permission/Users.md",
     "Roles & Permission/Roles.md",
