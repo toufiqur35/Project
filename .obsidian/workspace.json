@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Send Mail/OTP Mail.md",
+                "file": "Send Mail/Verify OTP.md",
                 "mode": "source",
                 "source": false
               }
@@ -30,8 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "84feb8693ed5a7bf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "User Profile/Complete User Profile.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -97,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Send Mail/OTP Mail.md",
+                "file": "User Profile/Complete User Profile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Send Mail/OTP Mail.md",
+                "file": "User Profile/Complete User Profile.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Send Mail/OTP Mail.md"
+                "file": "User Profile/Complete User Profile.md"
               }
             }
           },
@@ -167,12 +180,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e9157e967f18c51c",
+  "active": "84feb8693ed5a7bf",
   "lastOpenFiles": [
-    "Send Mail/Laravel Send Mail.md",
     "Send Mail/Verify OTP.md",
     "Send Mail/OTP Mail.md",
     "User Profile/Complete User Profile.md",
+    "Send Mail/Laravel Send Mail.md",
     "JWT Token/JWT Token.md",
     "User Profile",
     "JWT Token",

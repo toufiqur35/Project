@@ -338,6 +338,149 @@ public function handle(Request $request, Closure $next): Response
     }
 ```
 
-#### **Step 10: Make views.**
+#### **Step 10: OTP Mail**
 
-Create an registration page. **views/auth/registration.blade.php**
+Step-10.1: Open `.env` file
+
+```php
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your@gmail.com
+MAIL_PASSWORD=yourpassword
+MAIL_ENCRIPTION=tls
+MAIL_FROM_ADDRESS=”your@gmail.com”
+MAIL_FROM_NAME=”${APP_NAME}”
+```
+
+Step-10.2 : Create Mail Folder
+
+```
+php artisan make:mail OTPMail
+```
+
+Step-10.3 : Open `App/Mail/OTPMail.php` file
+
+```php
+namespace App\Mail;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
+
+class OTPMail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public $otp;
+    public function __construct($otp)
+    {
+        $this->otp = $otp;
+    }
+    
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            subject: 'O T P Mail',
+        );
+    }
+
+    public function content(): Content
+    {
+        return new Content(
+            view: 'email.OTPMail',
+        );
+    }
+
+    public function attachments(): array
+    {
+        return [];
+    }
+}
+```
+
+#### **Step 11: Make views.**
+
+Mail: Create & Open `resource/view/email/OTPMail.blade.php` file
+
+* This template sent to user email.
+
+```html
+<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+    <div style="margin:50px auto;width:70%;padding:20px 0">
+      <div style="border-bottom:1px solid #eee">
+        <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Your Brand</a>
+      </div>
+      <p style="font-size:1.1em">Hi,</p>
+      <p>Thank you for choosing Your Brand. Use the following OTP to complete your Sign Up procedures. OTP is valid for 5 minutes</p>
+      <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">{{ $otp }}</h2>
+      <p style="font-size:0.9em;">Regards,<br />Your Brand</p>
+      <hr style="border:none;border-top:1px solid #eee" />
+      <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
+        <p>Your Brand Inc</p>
+        <p>1600 Amphitheatre Parkway</p>
+        <p>California</p>
+      </div>
+    </div>
+  </div>
+```
+
+Layout: Create & Open `resource/view/backend/layout/app.blade.php` file
+
+```html
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>X-Bakery</title>
+
+    <link rel="stylesheet" href="{{ asset('css/progress.css') }}">
+
+    <link rel="stylesheet" href="{{asset('css/toastify.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
+
+    @vite('resources/css/app.css')
+
+</head>
+
+<body>
+
+    <div id="loader" class="LoadingOverlay hidden">
+
+        <div class="Line-Progress">
+
+            <div class="indeterminate"></div>
+
+        </div>
+
+    </div>
+
+    <div>
+
+        @yield('content')
+
+    </div>
+
+  
+
+    <script src="{{asset('js/toastify-js.js')}}"></script>
+
+    <script src="{{asset('js/axios.min.js')}}"></script>
+
+    <script src="{{asset('js/config.js')}}"></script>
+
+</body>
+
+</html>
+```
