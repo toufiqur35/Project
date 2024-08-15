@@ -640,3 +640,154 @@ class OTPMail extends Mailable
   @endsection
   
 ```
+
+6. Verify Otp: Create & Open `resource/view/backend/auth/verify_otp.blade.php` file
+
+```html
+@extends('backend.layout.app')
+@section('content')
+<section class="bg-gray-50">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="w-[37%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl sob font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">verify Otp</h1>
+                <div class="space-y-4 md:space-y-4">
+                    <input type="text" name="otp" id="otp" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2" placeholder="User verify Otp" required="">
+                    <button onclick="VerifyOtp()" type="submit" class="w-full text-white bg-gradient-to-r from-[#8523be] to-[#e5068a] hover:bg-gradient-to-l duration-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <script>
+  
+async function VerifyOtp() {
+        let otp = document.getElementById('otp').value;
+        if(otp.length !==4){
+           errorToast('Invalid OTP')
+        }
+        else{
+            showLoader();
+            let res=await axios.post('/verify-otp', {
+                otp: otp,
+                email:sessionStorage.getItem('email')
+            })
+            hideLoader();
+            if(res.status===200 && res.data['status']==='success'){
+                setTimeout(() => {
+                    window.location.href='/reset-password'
+                }, 1000);
+                successToast(res.data['message'])
+                sessionStorage.clear();
+            }
+            else{
+                errorToast(res.data['message'])
+            }
+        }
+    }
+  </script>
+@endsection
+  
+```
+
+7. Reset Password: Create & Open `resource/view/backend/auth/reset_password.blade.php` file
+
+```html
+@extends('backend.layout.app')
+@section('content')
+<section class="bg-gray-50">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="w-[37%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl sob font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Reset Password</h1>
+                <div class="space-y-4 md:space-y-4">
+                    <input id="password" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2" placeholder="New Password" class="form-control" type="password"/>
+                    <input id="cpassword" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2" placeholder="Confirm Password" class="form-control" type="password"/>
+                    <button onclick="ResetPass()" class="w-full text-white bg-gradient-to-r from-[#8523be] to-[#e5068a] hover:bg-gradient-to-l duration-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<script>
+  async function ResetPass() {
+        let password = document.getElementById('password').value;
+        let cpassword = document.getElementById('cpassword').value;
+        if(password.length===0){
+            errorToast('Password is required')
+        }
+        else if(cpassword.length===0){
+            errorToast('Confirm Password is required')
+        }
+        else if(password!==cpassword){
+            errorToast('Password and Confirm Password must be same')
+        }
+        else{
+          showLoader()
+          let res=await axios.post("/reset-password",{password:password});
+          hideLoader();
+          if(res.status===200 && res.data['status']==='success'){
+            window.location.href="/user-login";
+          }
+          else{
+            errorToast(res.data['message'])
+          }
+        }
+    }
+
+</script>
+@endsection
+  
+```
+
+8. Dashboard: Create & Open `resource/view/backend/dashboard.blade.php` file
+
+```html
+@extends('backend.layout.app')
+@section('content')
+@extends('backend.layout.app')
+
+<h1>dashboard page</h1>
+<a href="{{route('user.logout')}}">Logout</a>
+
+@endsection
+```
+
+8. Custom js: Create & Open `public/js/script.js` file
+
+```js
+function showLoader() {
+  document.getElementById('loader').classList.remove('hidden')
+}
+
+function hideLoader() {
+  document.getElementById('loader').classList.add('hidden')
+}
+
+
+function sucessToast(message) {
+  Toastify({
+    text: message,
+    gravity: "bottom", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    className: "mb-5",
+    style: {
+      background: "green",
+    }
+  }).showToast();
+}
+
+function errorToast(message) {
+  Toastify({
+    text: message,
+    gravity: "bottom", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    className: "mb-5",
+    style: {
+      background: "red",
+    }
+  }).showToast();
+}
+```
