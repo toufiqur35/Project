@@ -403,7 +403,7 @@ class OTPMail extends Mailable
 
 #### **Step 11: Make views.**
 
-Mail: Create & Open `resource/view/email/OTPMail.blade.php` file
+1. Mail: Create & Open `resource/view/email/OTPMail.blade.php` file
 
 * This template sent to user email.
 
@@ -427,60 +427,90 @@ Mail: Create & Open `resource/view/email/OTPMail.blade.php` file
   </div>
 ```
 
-Layout: Create & Open `resource/view/backend/layout/app.blade.php` file
+2. Layout: Create & Open `resource/view/backend/layout/app.blade.php` file
 
 ```html
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <title>X-Bakery</title>
-
     <link rel="stylesheet" href="{{ asset('css/progress.css') }}">
-
     <link rel="stylesheet" href="{{asset('css/toastify.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
-
     @vite('resources/css/app.css')
-
 </head>
-
 <body>
-
     <div id="loader" class="LoadingOverlay hidden">
-
         <div class="Line-Progress">
-
             <div class="indeterminate"></div>
+        </div>
+    </div>
+    <div>
+        @yield('content')
+    </div>
+    <script src="{{asset('js/toastify-js.js')}}"></script>
+    <script src="{{asset('js/axios.min.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
+</body>
+</html>
+```
+
+3. Login: Create & Open `resource/view/backend/auth/login.blade.php` file
+
+```html
+@extends('backend.layout.app')
+@section('content')
+    <section class="bg-gray-50">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="w-[37%] bg-white rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl sob font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Sign In
+
+                </h1>
+
+                <div class="space-y-4 md:space-y-4">
+
+                    <div>
+
+                        <label for="email" class="block mb-1 text-sm font-medium text-gray-900">Your email</label>
+
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2" placeholder="User Email" required="">
+
+                    </div>
+
+                    <div>
+
+                        <label for="password" class="block mb-1 text-sm font-medium text-gray-900">Password</label>
+
+                        <input type="password" name="password" id="password" placeholder="User Password" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2" required="">
+
+                    </div>
+
+                    <div class="flex items-center justify-between float-right">
+
+                        <a href="{{route('user.otp')}}" class="text-sm font-medium text-primary-600 hover:underline">Forgot password?</a>
+
+                    </div>
+
+                    <button onclick="SubmitLogin()" type="submit" class="w-full text-white bg-gradient-to-r from-[#8523be] to-[#e5068a] hover:bg-gradient-to-l duration-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+
+                    <p class="text-sm font-light text-gray-500">
+
+                        Don’t have an account yet? <a href="{{ route('user.register') }}" class="font-medium text-primary-600 hover:underline">Sign up</a>
+
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-    <div>
-
-        @yield('content')
-
-    </div>
-
-  
-
-    <script src="{{asset('js/toastify-js.js')}}"></script>
-
-    <script src="{{asset('js/axios.min.js')}}"></script>
-
-    <script src="{{asset('js/config.js')}}"></script>
-
-</body>
-
-</html>
+  </section>
+@endsection
 ```
