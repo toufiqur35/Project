@@ -55,7 +55,28 @@ app/Model/`User.php`
  protected $attributes = ['otp' => '0'];
 ```
 
-#### **Step 6: User Controller**
+#### **Step 6: Route File**
+routes/`web.php`
+
+```php
+// API Routes
+Route::post('/user-registration',[UserController::class,'userRegistration']);
+Route::post('/user-login',[UserController::class,'userLogin']);
+Route::post('/user-otp',[UserController::class,'sendOTPCode']);
+Route::post('/verify-otp',[UserController::class,'verifyOTP']);
+Route::post('/reset-password',[UserController::class,'ResetPassword'])->middleware(TokenVerificationMiddleware::class);
+// User Logout
+Route::get('/logout',[UserController::class,'UserLogout'])->name('user.logout');
+
+// Page Routes
+Route::get('/user-registration',[UserController::class,'RegistrationPage'])->name('user.register');
+Route::get('/user-login',[UserController::class,'LoginPage'])->name('user.login');
+Route::get('/user-otp',[UserController::class,'sendOTPPage'])->name('user.otp');
+Route::get('/verify-otp',[UserController::class,'verifyOTPPage'])->name('user.otp.verify');
+Route::get('/reset-password',[UserController::class,'ResetPasswordPage'])->name('user.password.reset');
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+```
+#### **Step 7: User Controller**
 
 In this step, we need to create User Controller and add following code on that file:
 app/Http/Controllers/`UserController.php`
@@ -236,7 +257,7 @@ class UserController extends Controller
 }
 ```
 
-#### **Step 6: JWT Token**
+#### **Step 8: JWT Token**
 
 ```
 composer require tymon/jwt-auth
@@ -293,9 +314,11 @@ class JWTToken
 }
 ```
 
-#### **Step 7: Create Middleware**
+#### **Step 9: Create Middleware**
 
-/
+In this step, we need to create `TokenVerificationMiddleware` file and add following code on that file:
+app/Http/Middleware/`TokenVerificationMiddleware.php`
+
 ```php
 public function handle(Request $request, Closure $next): Response
     {
@@ -314,3 +337,7 @@ public function handle(Request $request, Closure $next): Response
         }
     }
 ```
+
+#### **Step 9: Make views.**
+
+Create an registration page. **views/auth/registration.blade.php**
