@@ -57,7 +57,7 @@ app/Model/`User.php`
 
 #### **Step 6: User Controller**
 
-in this step, we need to create User Controller and add following code on that file:
+In this step, we need to create User Controller and add following code on that file:
 app/Http/Controllers/`UserController.php`
 
 ```php
@@ -242,3 +242,75 @@ class UserController extends Controller
 composer require tymon/jwt-auth
 ```
 
+In this step, we need to create Helper file and add following code on that file:
+
+app/Helper/`JWTToken.php`
+
+```php
+namespace App\Helper;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+class JWTToken
+{
+	// Create Token
+    public static function CreateToken($userEmail,$userID):string{
+        $key = env('JWT_KEY');
+        $payload=[
+            'iss' => 'laravel-token',
+            'iat' => time(),
+            'exp' => time()+60*60,
+            'userEmail' => $userEmail,
+            'userID' => $userID
+        ];
+        return JWT::encode($payload, $key, 'HS256');
+    }
+
+	// Create Token For Set Password
+    public static function CreateTokenForSetPassword($userEmail):string{
+        $key = env('JWT_KEY');
+        $payload=[
+            'iss' => 'laravel-token',
+            'iat' => time(),
+            'exp' => time()+60*5,
+            'userEmail' => $userEmail
+        ];
+        return JWT::encode($payload, $key, 'HS256');
+    }
+
+  // Verify Token
+    public static function VerifyToken($token):string
+    {
+        try{
+            $key = env('JWT_KEY');
+            $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            return $decoded->userEmail;
+        }
+        catch(\Exception $e){
+            return 'Unauthorized';
+        }
+    }
+}
+```
+
+#### **Step 7: Create Middleware**
+
+/
+```php
+public function handle(Request $request, Closure $next): Response
+    {
+        $token = $request->cookie('token');
+        $result = JWTToken::VerifyToken($token);
+        if($result == "unauthorized"){
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'unauthorized'
+            ],401);
+        }
+
+        else{
+            $request->headers->set('email', $result);
+            return $next($request);
+        }
+    }
+```
