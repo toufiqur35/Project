@@ -260,7 +260,7 @@ class UserController extends Controller
 #### **Step 8: JWT Token**
 
 ```
-composer require tymon/jwt-auth
+composer require firebase/php-jwt
 ```
 
 In this step, we need to create Helper file and add following code on that file:

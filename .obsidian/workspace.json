@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "User Profile/Complete User Profile.md",
+                "file": "JWT Token/JWT Token.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "User Profile/Complete User Profile.md",
+                "file": "JWT Token/JWT Token.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "User Profile/Complete User Profile.md",
+                "file": "JWT Token/JWT Token.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "User Profile/Complete User Profile.md"
+                "file": "JWT Token/JWT Token.md"
               }
             }
           },
@@ -182,9 +182,9 @@
   },
   "active": "84feb8693ed5a7bf",
   "lastOpenFiles": [
+    "User Profile/Complete User Profile.md",
     "Send Mail/Verify OTP.md",
     "Send Mail/OTP Mail.md",
-    "User Profile/Complete User Profile.md",
     "Send Mail/Laravel Send Mail.md",
     "JWT Token/JWT Token.md",
     "User Profile",
