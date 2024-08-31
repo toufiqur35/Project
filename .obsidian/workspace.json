@@ -4,40 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "1d423fd479b3de28",
+        "id": "3419fd8ff9aec674",
         "type": "tabs",
         "children": [
           {
-            "id": "84473b336e6931ff",
+            "id": "52a47e30ecafb1b7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSL Commarz/SSLCommerz.md",
+                "file": "Send Mail/OTP Mail.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "cf17d2209d80dd1b",
+            "id": "e457dadbdffb9426",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSL Commarz/SSLCommerz.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "970117754282afa0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JWT Token/JWT Token.md",
+                "file": "SSL Commarz/OTP Mail.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SSL Commarz/SSLCommerz.md",
+                "file": "SSL Commarz/OTP Mail.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SSL Commarz/SSLCommerz.md",
+                "file": "SSL Commarz/OTP Mail.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSL Commarz/SSLCommerz.md"
+                "file": "SSL Commarz/OTP Mail.md"
               }
             }
           },
@@ -180,19 +168,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "cf17d2209d80dd1b",
+  "active": "e457dadbdffb9426",
   "lastOpenFiles": [
-    "SSL Commarz/Middleware.md",
+    "Send Mail/OTP Mail.md",
+    "SSL Commarz/OTP Mail.md",
+    "Send Mail/Laravel Send Mail.md",
+    "Send Mail/Verify OTP.md",
+    "SSL Commarz/SSLCommerz.md",
+    "SSL Commarz/User-Customer Profile.md",
     "SSL Commarz/JWTToken.md",
     "JWT Token/JWT Token.md",
-    "SSL Commarz/User-Customer Profile.md",
-    "SSL Commarz/SSLCommerz.md",
+    "SSL Commarz/Middleware.md",
     "Untitled.md",
     "SSL Commarz",
     "User Profile/Complete User Profile.md",
-    "Send Mail/Verify OTP.md",
-    "Send Mail/OTP Mail.md",
-    "Send Mail/Laravel Send Mail.md",
     "User Profile",
     "JWT Token",
     "Roles & Permission/Users.md",
@@ -211,7 +200,6 @@
     "Importent website/Web Link.md",
     "Demo Data/Factory.md",
     "Demo Data/Seeder.md",
-    "Image Upload/Image.md",
     "Demo Data",
     "Importent website",
     "Date Time Formate",

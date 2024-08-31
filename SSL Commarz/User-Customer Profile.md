@@ -48,6 +48,13 @@ Schema::create('customer_profiles', function (Blueprint $table) {
         });
 ```
 
+#### 3. Create `UserController` Table
+
+```
+php artisan make:controller UserController
+```
+
+* app/Http/controller/`UserController.php`
 
 ```php
 namespace App\Http\Controllers;

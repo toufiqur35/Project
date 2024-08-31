@@ -399,8 +399,12 @@ class ResponseHelper
 * routes/`werb.php`
 
 ```php
-// Invoice and payment
+// User login Auth
+Route::get('/login/{email}',[UserController::class,'UserLogin']);
+Route::get('/veryfyLogin/{email}/{otp}',[UserController::class,'VerifyLogin']);
+Route::get('/logout',[UserController::class,'UserLogout']);
 
+// Invoice and payment
 Route::get("/InvoiceCreate",[InvoiceController::class,'InvoiceCreate'])->middleware([TokenAuthenticate::class]);
 
 Route::get("/InvoiceList",[InvoiceController::class,'InvoiceList'])->middleware([TokenAuthenticate::class]);
