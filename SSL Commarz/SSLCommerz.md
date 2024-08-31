@@ -396,7 +396,7 @@ class ResponseHelper
 
 #### 13. Create Route
 
-* Route/`werb.php`
+* routes/`werb.php`
 
 ```php
 // Invoice and payment
@@ -416,10 +416,8 @@ Route::post("/PaymentFail",[InvoiceController::class,'PaymentFail']);
 
 #### 13. Create Api Route
 
-* Route/`erb.php`
+* routes/`api.php`
 
 ```php
-// Invoice and payment
-
 Route::post("/PaymentIPN",[InvoiceController::class,'PaymentIPN']);
 ```
