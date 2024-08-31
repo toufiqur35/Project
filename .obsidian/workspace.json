@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSL Commarz/Untitled.md",
+                "file": "SSL Commarz/SSLCommerz.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SSL Commarz/Untitled.md",
+                "file": "SSL Commarz/SSLCommerz.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SSL Commarz/Untitled.md",
+                "file": "SSL Commarz/SSLCommerz.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSL Commarz/Untitled.md"
+                "file": "SSL Commarz/SSLCommerz.md"
               }
             }
           },
@@ -158,7 +158,7 @@
   "active": "84473b336e6931ff",
   "lastOpenFiles": [
     "JWT Token/JWT Token.md",
-    "SSL Commarz/Untitled.md",
+    "SSL Commarz/SSLCommerz.md",
     "SSL Commarz",
     "User Profile/Complete User Profile.md",
     "Send Mail/Verify OTP.md",
