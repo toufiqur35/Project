@@ -195,12 +195,12 @@ php artisan make:controller InvoiceController
 ```php
 namespace App\Http\Controllers;
 use Exception;
-use App\Models\invoice;
+use App\Models\Invoice;
 use App\Helper\SSLCommerz;
 use App\Models\ProductCart;
 use Illuminate\Http\Request;
 use App\Helper\ResponseHelper;
-use App\Models\invoiceProduct;
+use App\Models\InvoiceProduct;
 use App\Models\CustomerProfile;
 use Illuminate\Support\Facades\DB;
 
@@ -229,7 +229,7 @@ class InvoiceController extends Controller
             $vat=($total*3)/100;
             $payable=$total+$vat;
 
-            $invoice= invoice::create([
+            $invoice= Invoice::create([
                 'total'=>$total,
                 'vat'=>$vat,
                 'payable'=>$payable,
@@ -243,7 +243,7 @@ class InvoiceController extends Controller
 
             $invoiceID=$invoice->id;
             foreach ($cartList as $EachProduct) {
-                invoiceProduct::create([
+                InvoiceProduct::create([
                     'invoice_id' => $invoiceID,
                     'product_id' => $EachProduct['product_id'],
                     'user_id'=>$user_id,
@@ -264,13 +264,13 @@ class InvoiceController extends Controller
 
     function InvoiceList(Request $request){
         $user_id=$request->header('id');
-        return invoice::where('user_id',$user_id)->get();
+        return Invoice::where('user_id',$user_id)->get();
     }
 
     function InvoiceProductList(Request $request){
         $user_id=$request->header('id');
         $invoice_id=$request->invoice_id;
-        return invoiceProduct::where(['user_id'=>$user_id,'invoice_id'=>$invoice_id])->with('product')->get();
+        return InvoiceProduct::where(['user_id'=>$user_id,'invoice_id'=>$invoice_id])->with('product')->get();
     }
   
     function PaymentSuccess(Request $request){
@@ -300,7 +300,7 @@ class InvoiceController extends Controller
 
 ```php
 namespace App\Helper;
-use App\Models\invoice;
+use App\Models\Invoice;
 use App\Models\SslcommerzAccount;
 use Exception;
 use Illuminate\Support\Facades\Http;
@@ -354,24 +354,24 @@ class SSLCommerz
 
 
     static function InitiateSuccess($tran_id):int{
-        invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Success']);
+        Invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Success']);
         return 1;
     }
 
     static function InitiateFail($tran_id):int{
-       invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Fail']);
+       Invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Fail']);
        return 1;
     }
     
 
     static function InitiateCancel($tran_id):int{
-        invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Cancel']);
+        Invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Cancel']);
         return 1;
     }
 
 
     static function InitiateIPN($tran_id,$status,$val_id):int{
-        invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>$status,'val_id'=>$val_id]);
+        Invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>$status,'val_id'=>$val_id]);
         return 1;
     }
 }
@@ -404,11 +404,13 @@ Route::get('/login/{email}',[UserController::class,'UserLogin']);
 Route::get('/veryfyLogin/{email}/{otp}',[UserController::class,'VerifyLogin']);
 Route::get('/logout',[UserController::class,'UserLogout']);
 
+// user profile
+Route::post('/createProfile',[ProfileController::class,'createProfile'])->middleware(TokenAuthenticate::class);
+Route::get('/readProfile',[ProfileController::class,'readProfile'])->middleware(TokenAuthenticate::class);
+
 // Invoice and payment
 Route::get("/InvoiceCreate",[InvoiceController::class,'InvoiceCreate'])->middleware([TokenAuthenticate::class]);
-
 Route::get("/InvoiceList",[InvoiceController::class,'InvoiceList'])->middleware([TokenAuthenticate::class]);
-
 Route::get("/InvoiceProductList/{invoice_id}",[InvoiceController::class,'InvoiceProductList'])->middleware([TokenAuthenticate::class]);
 
 //payment success cancel and fail url

@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SSL Commarz/User-Customer Profile.md",
+                "file": "SSL Commarz/SSLCommerz.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SSL Commarz/User-Customer Profile.md",
+                "file": "SSL Commarz/SSLCommerz.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SSL Commarz/User-Customer Profile.md",
+                "file": "SSL Commarz/SSLCommerz.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSL Commarz/User-Customer Profile.md"
+                "file": "SSL Commarz/SSLCommerz.md"
               }
             }
           },
@@ -155,8 +155,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5,
-    "collapsed": true
+    "width": 290.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -170,12 +169,12 @@
   },
   "active": "e457dadbdffb9426",
   "lastOpenFiles": [
+    "SSL Commarz/User-Customer Profile.md",
+    "SSL Commarz/SSLCommerz.md",
     "SSL Commarz/OTP Mail.md",
     "Send Mail/OTP Mail.md",
     "Send Mail/Laravel Send Mail.md",
     "Send Mail/Verify OTP.md",
-    "SSL Commarz/SSLCommerz.md",
-    "SSL Commarz/User-Customer Profile.md",
     "SSL Commarz/JWTToken.md",
     "JWT Token/JWT Token.md",
     "SSL Commarz/Middleware.md",

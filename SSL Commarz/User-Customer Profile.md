@@ -109,13 +109,13 @@ class UserController extends Controller
 }
 ```
 
-#### 4. Create `UserController` Table
+#### 4. Create `ProfileController` Table
 
 ```
-php artisan make:controller UserController
+php artisan make:controller ProfileController
 ```
 
-* app/Http/controller/`UserController.php`
+* app/Http/controller/`ProfileController.php`
 
 ```php
 namespace App\Http\Controllers;
@@ -136,19 +136,11 @@ class ProfileController extends Controller
         return ResponseHelper::Out('success', $data, 200);
     }
 
-  
-
     public function readProfile(Request $request)
-
     {
-
         $user_id = $request->header('id');
-
         $data = CustomerProfile::where('user_id', $user_id)->with('user')->first();
-
         return ResponseHelper::Out('success', $data, 200);
-
     }
-
 }
 ```
