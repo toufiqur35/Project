@@ -414,7 +414,7 @@ Route::post("/PaymentCancel",[InvoiceController::class,'PaymentCancel']);
 Route::post("/PaymentFail",[InvoiceController::class,'PaymentFail']);
 ```
 
-#### 13. Create Api Route
+#### 13. Create `Api` Route
 
 * routes/`api.php`
 
