@@ -183,3 +183,261 @@ class SslcommerzAccount extends Model
     use HasFactory;
 }
 ```
+
+#### 10. Create Invoice Controller
+
+```
+php artisan make:controller InvoiceController
+```
+
+* app/Http/controller/`InvoiceController.php`
+
+```php
+namespace App\Http\Controllers;
+use Exception;
+use App\Models\invoice;
+use App\Helper\SSLCommerz;
+use App\Models\ProductCart;
+use Illuminate\Http\Request;
+use App\Helper\ResponseHelper;
+use App\Models\invoiceProduct;
+use App\Models\CustomerProfile;
+use Illuminate\Support\Facades\DB;
+
+class InvoiceController extends Controller
+{
+    function InvoiceCreate(Request $request)
+    {  
+        DB::beginTransaction();
+        try {
+            $user_id=$request->header('id');
+            $user_email=$request->header('email');
+            $tran_id=uniqid();
+            $delivery_status='Pending';
+            $payment_status='Pending';
+            $Profile=CustomerProfile::where('user_id','=',$user_id)->first();
+            $cus_details="Name:$Profile->cus_name,Address:$Profile->cus_add,City:$Profile->cus_city,Phone: $Profile->cus_phone";
+            $ship_details="Name:$Profile->ship_name,Address:$Profile->ship_add ,City:$Profile->ship_city ,Phone: $Profile->cus_phone";
+
+            // Payable Calculation
+            $total=0;
+            $cartList=ProductCart::where('user_id','=',$user_id)->get();
+            foreach ($cartList as $cartItem) {
+                $total=$total+$cartItem->price;
+            }
+            
+            $vat=($total*3)/100;
+            $payable=$total+$vat;
+
+            $invoice= invoice::create([
+                'total'=>$total,
+                'vat'=>$vat,
+                'payable'=>$payable,
+                'cus_details'=>$cus_details,
+                'ship_details'=>$ship_details,
+                'tran_id'=>$tran_id,
+                'delivery_status'=>$delivery_status,
+                'payment_status'=>$payment_status,
+                'user_id'=>$user_id
+            ]);
+
+            $invoiceID=$invoice->id;
+            foreach ($cartList as $EachProduct) {
+                invoiceProduct::create([
+                    'invoice_id' => $invoiceID,
+                    'product_id' => $EachProduct['product_id'],
+                    'user_id'=>$user_id,
+                    'qty' =>  $EachProduct['qty'],
+                    'sale_price'=>  $EachProduct['price'],
+                ]);
+            }
+				           $paymentMethod=SSLCommerz::InitiatePayment($Profile,$payable,$tran_id,$user_email);
+			 DB::commit();
+			return ResponseHelper::Out('success',array(['paymentMethod'=>$paymentMethod,
+			'payable'=>$payable,'vat'=>$vat,'total'=>$total]),200);
+        }
+        catch (Exception $e) {
+            DB::rollBack();
+            return ResponseHelper::Out('fail',$e,200);
+        }
+    }
+
+    function InvoiceList(Request $request){
+        $user_id=$request->header('id');
+        return invoice::where('user_id',$user_id)->get();
+    }
+
+    function InvoiceProductList(Request $request){
+        $user_id=$request->header('id');
+        $invoice_id=$request->invoice_id;
+        return invoiceProduct::where(['user_id'=>$user_id,'invoice_id'=>$invoice_id])->with('product')->get();
+    }
+  
+    function PaymentSuccess(Request $request){
+        SSLCommerz::InitiateSuccess($request->query('tran_id'));
+        // return redirect('/profile');
+    }
+
+    function PaymentCancel(Request $request){
+        SSLCommerz::InitiateCancel($request->query('tran_id'));
+        // return redirect('/profile');
+    }
+
+    function PaymentFail(Request $request){
+        return SSLCommerz::InitiateFail($request->query('tran_id'));
+        // return redirect('/profile');
+    }
+
+    function PaymentIPN(Request $request){
+        return SSLCommerz::InitiateIPN($request->input('tran_id'),$request->input('status'),$request->input('val_id'));
+    }
+}
+```
+
+#### 11. Create `SSLCommerz` Helper File 
+
+* app/Helper/`SSLCommerz.php`
+
+```php
+namespace App\Helper;
+use App\Models\invoice;
+use App\Models\SslcommerzAccount;
+use Exception;
+use Illuminate\Support\Facades\Http;
+
+class SSLCommerz
+{
+   static function  InitiatePayment($Profile,$payable,$tran_id,$user_email):array
+   {
+      try{
+          $ssl= SslcommerzAccount::first();
+          $response = Http::asForm()->post($ssl->init_url,[
+              "store_id"=>$ssl->store_id,
+              "store_passwd"=>$ssl->store_passwd,
+              "total_amount"=>$payable,
+              "currency"=>$ssl->currency,
+              "tran_id"=>$tran_id,
+              "success_url"=>"$ssl->success_url?tran_id=$tran_id",
+              "fail_url"=>"$ssl->fail_url?tran_id=$tran_id",
+              "cancel_url"=>"$ssl->cancel_url?tran_id=$tran_id",
+              "ipn_url"=>$ssl->ipn_url,
+              "cus_name"=>$Profile->cus_name,
+              "cus_email"=>$user_email,
+
+              "cus_add1"=>$Profile->cus_add,
+
+              "cus_add2"=>$Profile->cus_add,
+
+              "cus_city"=>$Profile->cus_city,
+
+              "cus_state"=>$Profile->cus_city,
+
+              "cus_postcode"=>"1200",
+
+              "cus_country"=>$Profile->cus_country,
+
+              "cus_phone"=>$Profile->cus_phone,
+
+              "cus_fax"=>$Profile->cus_phone,
+
+              "shipping_method"=>"YES",
+
+              "ship_name"=>$Profile->ship_name,
+
+              "ship_add1"=>$Profile->ship_add,
+
+              "ship_add2"=>$Profile->ship_add,
+
+              "ship_city"=>$Profile->ship_city,
+
+              "ship_state"=>$Profile->ship_city,
+
+              "ship_country"=>$Profile->ship_country ,
+
+              "ship_postcode"=>"12000",
+
+              "product_name"=>"Apple Shop Product",
+
+              "product_category"=>"Apple Shop Category",
+
+              "product_profile"=>"Apple Shop Profile",
+
+              "product_amount"=>$payable,
+
+          ]);
+
+          return $response->json('desc');
+
+      }
+
+      catch (Exception $e){
+
+          return $ssl;
+
+      }
+
+  
+
+    }
+
+  
+  
+  
+
+    static function InitiateSuccess($tran_id):int{
+
+        invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Success']);
+
+        return 1;
+
+    }
+
+  
+
+    static function InitiateFail($tran_id):int{
+
+       invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Fail']);
+
+       return 1;
+
+    }
+
+  
+  
+
+    static function InitiateCancel($tran_id):int{
+
+        invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>'Cancel']);
+
+        return 1;
+
+    }
+
+  
+
+    static function InitiateIPN($tran_id,$status,$val_id):int{
+
+        invoice::where(['tran_id'=>$tran_id,'val_id'=>0])->update(['payment_status'=>$status,'val_id'=>$val_id]);
+
+        return 1;
+
+    }
+
+}
+```
+#### 12. Create Response Helper File (Optional)
+
+* app/Helper/`ResponseHelper.php`
+
+```php
+namespace App\Helper;
+use Illuminate\Http\JsonResponse;
+
+class ResponseHelper
+{
+    public static function Out($msg,$data,$code): JsonResponse{
+        return response()->json(['msg'=>$msg,'data'=>$data], $code);
+    }
+}
+```
+
