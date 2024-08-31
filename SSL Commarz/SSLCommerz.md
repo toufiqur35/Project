@@ -63,3 +63,27 @@ Schema::create('sslcommerz_accounts', function (Blueprint $table) {
             $table->timestamps();
         });
 ```
+
+#### 4. Insert Data Into `Sslcommerz` Accounts Table
+
+* Create `sslcommerz` send box account and insert this data.
+* https://developer.sslcommerz.com/registration
+
+```sql
+INSERT INTO `sslcommerz_accounts` (`id`, `store_id`, `store_passwd`, `currency`, `success_url`, `fail_url`, `cancel_url`, `ipn_url`, `init_url`, `created_at`, `updated_at`) VALUES
+
+(1, 'teamr64c9e84055219', 'teamr64c9e84055219@ssl', 'BDT', 'http://127.0.0.1:8000/PaymentSuccess', 'http://127.0.0.1:8000/PaymentFail', 'http://127.0.0.1:8000/PaymentCancel', 'http://127.0.0.1:8000/api/PaymentIPN', 'https://sandbox.sslcommerz.com/gwprocess/v4/api.php', '2023-08-25 21:35:23', '2023-08-25 21:35:23');
+```
+
+
+```php
+ protected $fillable = [
+        'email',
+        'otp',
+    ];
+
+    public function profile()
+    {
+        return $this->hasOne(CustomerProfile::class);
+    }
+```
